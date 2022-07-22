@@ -1,0 +1,40 @@
+{
+    "name": "rapidez/gtm",
+    "description": "Rapidez GTM",
+    "keywords": [
+        "rapidez"
+    ],
+    "homepage": "https://rapidez.io",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Roy Duineveld",
+            "email": "royduineveld@gmail.com",
+            "homepage": "https://royduineveld.nl",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": "^8.0|^8.1",
+        "illuminate/support": "^9.0",
+        "illuminate/view": "^9.0",
+        "rapidez/core": "~0.66"
+    },
+    "autoload": {
+        "psr-4": {
+            "Rapidez\\GTM\\": "src"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Rapidez\\GTM\\GTMServiceProvider"
+            ]
+        }
+    }
+}
