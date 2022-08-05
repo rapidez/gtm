@@ -60,12 +60,23 @@ document.addEventListener('turbolinks:load', (event) => {
         })
 
         window.app.$on('checkout-step', (step) => {
+            let products = []
+            Object.values(window.app.cart.items).forEach(function (item) {
+                products.push({
+                    name: item.name,
+                    id: item.product_id,
+                    price: item.price,
+                    quantity: item.qty,
+                })
+            })
+
             dataLayer.push({ ecommerce: null })
             dataLayer.push({
                 'event': 'checkout',
                 'ecommerce': {
                     'checkout': {
                         'actionField': {'step': step},
+                        'products': products,
                     }
                 }
             })
