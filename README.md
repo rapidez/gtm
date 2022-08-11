@@ -25,6 +25,14 @@ And finally add `@include('rapidez-gtm::head')` and `@include('rapidez-gtm::foot
 php artisan vendor:publish --provider="Rapidez\Core\RapidezServiceProvider" --tag=views
 ```
 
+## Multistore
+
+Just add all stores in `config/rapidez-gtm.php` after you've published the config with:
+```
+php artisan vendor:publish --provider="Rapidez\GTM\GTMServiceProvider" --tag=config
+```
+Where the key of the `id` array is the store code.
+
 ## Views
 
 If you need to change the views you can publish them with:
