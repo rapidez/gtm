@@ -4,6 +4,8 @@ function removeTrailingZeros(price) {
 
 document.addEventListener('turbolinks:load', (event) => {
     if ('dataLayer' in window) {
+        window.dataLayer = []
+        
         window.dataLayer.push({
             'event': 'pageView',
             'virtualUrl': event.data.url
