@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.0 - 2022-11-08
+
+### Changed
+
+- Clear dataLayer on every Turbolinks load (5406164)
+
 ## 0.3.0 - 2022-08-11
 
 ### Added
