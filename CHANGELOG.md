@@ -1,4 +1,11 @@
-# Changelog
+# Changelog 
+
+## 0.5.0 - 2023-01-19
+
+### Changed
+
+- Replace turbolinks with turbo (#1)
+- Add changelog action (8f2af92)
 
 ## 0.4.0 - 2022-11-08
 
@@ -21,3 +28,4 @@
 ## 0.1.0 - 2022-07-22
 
 Initial release
+
