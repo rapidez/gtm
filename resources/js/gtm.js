@@ -2,7 +2,7 @@ function removeTrailingZeros(price) {
     return parseFloat(parseFloat(price).toString())
 }
 
-document.addEventListener('turbolinks:load', (event) => {
+document.addEventListener('turbo:load', (event) => {
     if ('dataLayer' in window) {
         window.dataLayer = []
         
