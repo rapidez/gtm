@@ -20,7 +20,7 @@
         "php": "^8.0|^8.1",
         "illuminate/support": "^9.0",
         "illuminate/view": "^9.0",
-        "rapidez/core": "~0.66"
+        "rapidez/core": "~0.77"
     },
     "autoload": {
         "psr-4": {
