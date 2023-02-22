@@ -1,5 +1,11 @@
 # Changelog 
 
+## 0.5.1 - 2023-02-22
+
+### Bugfix
+
+- Use the correct event data which changed with the Turbo migration (1d73a12)
+
 ## 0.5.0 - 2023-01-19
 
 ### Changed
