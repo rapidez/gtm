@@ -8,7 +8,7 @@ document.addEventListener('turbo:load', (event) => {
         
         window.dataLayer.push({
             'event': 'pageView',
-            'virtualUrl': event.data.url
+            'virtualUrl': event.detail.url
         })
 
         if (window.config.product) {
