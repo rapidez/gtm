@@ -8,11 +8,6 @@ This Rapidez package provides 2 views with the GTM scripts, listens to events em
 composer require rapidez/gtm
 ```
 
-Make sure this exists in your `app.js`:
-```js
-import.meta.glob(['Vendor/rapidez/*/resources/js/app.js'], { eager: true });
-```
-
 And add your GTM ID in the `.env`
 ```env
 GTM_ID=
