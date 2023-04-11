@@ -4,23 +4,28 @@ function removeTrailingZeros(price) {
 
 document.addEventListener('turbo:load', (event) => {
     if ('dataLayer' in window) {
-        window.dataLayer = []
-        
+        if (window.config.gtm['clear-on-load']) {
+            window.dataLayer = []
+        }
+
         window.dataLayer.push({
             'event': 'pageView',
             'virtualUrl': event.detail.url
         })
 
         if (window.config.product) {
+            let product = {}
+
+            // See the GTMServiceProvider for the values
+            Object.entries(config.gtm.productpage).forEach(([key, value]) => {
+                product[key] = eval(value)
+            })
+
             dataLayer.push({ ecommerce: null });
             dataLayer.push({
                 'ecommerce': {
                     'detail': {
-                        'products': [{
-                            'name': window.config.product.name,
-                            'id': window.config.product.id,
-                            'price': removeTrailingZeros(window.config.product.price),
-                        }]
+                        'products': [product]
                     }
                 }
             })
