@@ -1,6 +1,12 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/gtm/compare/0.6.0...master)
+[Unreleased changes](https://github.com/rapidez/gtm/compare/0.7.0...master)
+## [0.7.0](https://github.com/rapidez/gtm/releases/tag/0.7.0) - 2023-04-11
+
+#### Changed
+
+- Configurable clear on load and productpage data from a config (39b46ac)
+
 ## [0.6.0](https://github.com/rapidez/gtm/releases/tag/0.6.0) - 2023-04-05
 
 #### Added
