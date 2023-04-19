@@ -1,0 +1,1 @@
+@once<script src="/~partytown/{{ config('app.debug', false) ? 'debug/' : '' }}partytown.js" defer data-turbo-track="reload"></script>@endonce

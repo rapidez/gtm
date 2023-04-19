@@ -2,6 +2,7 @@
 
 namespace Rapidez\GTM;
 
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
 class GTMServiceProvider extends ServiceProvider
@@ -19,6 +20,10 @@ class GTMServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../resources/views' => resource_path('views/vendor/rapidez-gtm'),
         ], 'views');
+
+        Route::prefix('gtm')
+            ->middleware('web')
+            ->group(__DIR__ . '/../routes/web.php');
 
         config([
             'frontend.gtm.elgentos-serverside' => config('rapidez-gtm.elgentos-serverside'),
