@@ -62,7 +62,7 @@ If you notice more domains giving CORS errors you can add them to the config or 
 
 ### Custom config
 
-The partytown configuration is available in `window.partytown` so you can change the configuration by updating thhe configuration within `<script></script>` tags.
+The partytown configuration is available in `window.partytown` so you can change the configuration by updating the configuration within `<script></script>` tags.
 
 ### Running partytown but not for GTM
 

@@ -2,7 +2,7 @@
 <script>
     partytown = {
         forward: [],
-        debug: {{ config('app.debug', false) ? 'true' : 'false' }},
+        debug: {{ var_export(config('app.debug'), true) }},
         resolveUrl: function (url, location, type) {
             if (@json(config('rapidez-gtm.partytown.domain_whitelist')).includes(url.host)) {
                 return @json(route('rapidez-gtm::proxy', ['url' => '/'], false) . '/') + url.href;
