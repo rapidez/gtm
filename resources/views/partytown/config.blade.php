@@ -4,7 +4,7 @@
         forward: [],
         debug: {{ config('app.debug', false) ? 'true' : 'false' }},
         resolveUrl: function (url, location, type) {
-            if (@json(config('rapidez.partytown')).includes(url.host)) {
+            if (@json(config('rapidez-gtm.partytown.domain_whitelist')).includes(url.host)) {
                 return @json(route('rapidez-gtm::proxy', ['url' => '/'], false) . '/') + url.href;
             }
             return url
