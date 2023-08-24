@@ -41,6 +41,39 @@ This package doesn't send any purchase events as it's better to send those from 
 GTM_ELGENTOS=true
 ```
 
+## Partytown
+
+Scripts like GTM have a massive negative impact on performance and pagespeed, to remedy this scripts like [Partytown](https://partytown.builder.io/) have been made.
+Which allows you to keep your analytics but reclaim _some_ of the performance.
+
+Note that partytown is technically not production ready and still in beta.
+
+### Installation
+
+ - Execute `yarn add @builder.io/partytown`
+ - [Configure Vite to copy the partytown files](https://partytown.builder.io/copy-library-files#vite) (however instead of dist it should go in public)
+ - Enable partytown for GTM by adding `GTM_PARTYTOWN_ENABLE=true` to your .env
+
+### Additional domains and CORS
+
+Not all domains support partytown due to their CORS settings (https://partytown.builder.io/proxying-requests)
+This package comes with a proxy for these domains which by default is only set up for GTM (see: config/rapidez-gtm.php)
+If you notice more domains giving CORS errors you can add them to the config or in a comma seperated list in your .env under `GTM_PARTYTOWN_DOMAIN_WHITELIST`.
+
+### Custom config
+
+The partytown configuration is available in `window.partytown` so you can change the configuration by updating the configuration within `<script></script>` tags.
+
+### Running partytown but not for GTM
+
+If you want to run partytown but not for GTM that's possible too by configuring `GTM_PARTYTOWN_ENABLE=false` and manually including the partytown view in the head.
+
+```blade
+@push('head')
+    @include('rapidez-gtm::partytown.index')
+@endpush
+```
+
 ## License
 
 GNU General Public License v3. Please see [License File](LICENSE) for more information.
