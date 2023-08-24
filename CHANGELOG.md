@@ -1,6 +1,12 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/gtm/compare/0.8.0...master)
+[Unreleased changes](https://github.com/rapidez/gtm/compare/0.9.0...master)
+## [0.9.0](https://github.com/rapidez/gtm/releases/tag/0.9.0) - 2023-08-24
+
+### Added
+
+- Partytown support (#3)
+
 ## [0.8.0](https://github.com/rapidez/gtm/releases/tag/0.8.0) - 2023-08-23
 
 ### Added
