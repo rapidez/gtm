@@ -1,4 +1,4 @@
-@if(config('rapidez-gtm.id.'.config('rapidez.store_code')))
+@if(config('rapidez-gtm.id.'.config('rapidez.store_code')) && !request()->has('gtm'))
     <script>window.dataLayer = window.dataLayer || [];</script>
     <script type="text/{{ config('rapidez-gtm.partytown.enabled') ? 'partytown' : 'javascript' }}">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],

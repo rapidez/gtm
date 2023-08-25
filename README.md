@@ -41,6 +41,10 @@ This package doesn't send any purchase events as it's better to send those from 
 GTM_ELGENTOS=true
 ```
 
+## Temporarily disable
+
+If you'd like to test for example the Lighthouse scores without GTM you can disable it by added `?gtm=false` to the url
+
 ## Partytown
 
 Scripts like GTM have a massive negative impact on performance and pagespeed, to remedy this scripts like [Partytown](https://partytown.builder.io/) have been made.
