@@ -1,6 +1,12 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/gtm/compare/0.9.0...master)
+[Unreleased changes](https://github.com/rapidez/gtm/compare/0.10.0...master)
+## [0.10.0](https://github.com/rapidez/gtm/releases/tag/0.10.0) - 2023-08-25
+
+### Added
+
+- Possibility to disable GTM with an url param (e446d92)
+
 ## [0.9.0](https://github.com/rapidez/gtm/releases/tag/0.9.0) - 2023-08-24
 
 ### Added
