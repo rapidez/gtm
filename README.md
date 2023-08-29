@@ -58,6 +58,7 @@ Note that partytown is technically not production ready and still in beta.
  - [Configure Vite to copy the partytown files](https://partytown.builder.io/copy-library-files#vite) (however instead of dist it should go in public)
  - Make sure [symfony/psr-http-message-bridge](https://github.com/symfony/psr-http-message-bridge) is installed, if it is not: `composer require symfony/psr-http-message-bridge`
  - Enable partytown for GTM by adding `GTM_PARTYTOWN_ENABLE=true` to your .env
+ - Add `/public/~partytown` to your .gitignore
 
 ### Additional domains and CORS
 
