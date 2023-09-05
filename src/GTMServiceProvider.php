@@ -30,13 +30,17 @@ class GTMServiceProvider extends ServiceProvider
         config([
             'frontend.gtm.elgentos-serverside' => config('rapidez-gtm.elgentos-serverside'),
             'frontend.gtm.clear-on-load' => config('rapidez-gtm.clear-on-load'),
+            'frontend.gtm.send-ua-events' => config('rapidez-gtm.send-ua-events'),
+            'frontend.gtm.send-ga4-events' => config('rapidez-gtm.send-ga4-events'),
 
             // These values go through eval(), this way you can add values
             // easily from your AppServiceProvider, for example with:
             // config(['frontend.gtm.productpage.something' => 'window.config.product.something']);
             'frontend.gtm.productpage' => [
                 'name' => 'window.config.product.name',
+                'item_name' => 'window.config.product.name',
                 'id' => 'window.config.product.id',
+                'item_id' => 'window.config.product.sku',
                 'price' => 'removeTrailingZeros(window.config.product.price)',
             ],
         ]);
