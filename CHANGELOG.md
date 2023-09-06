@@ -1,6 +1,12 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/gtm/compare/0.10.0...master)
+[Unreleased changes](https://github.com/rapidez/gtm/compare/0.11.0...master)
+## [0.11.0](https://github.com/rapidez/gtm/releases/tag/0.11.0) - 2023-09-06
+
+### Added
+
+- GA4 events (#6)
+
 ## [0.10.0](https://github.com/rapidez/gtm/releases/tag/0.10.0) - 2023-08-25
 
 ### Added
