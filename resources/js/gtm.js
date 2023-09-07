@@ -1,6 +1,6 @@
 window.removeTrailingZeros = (price) =>  parseFloat(parseFloat(price).toString());
 
-(async () => {
+let dataLayersPromise = (async () => {
     // This async function is in order to work around "ERROR: Top-level await is not available" when building for older browsers.
     window.dataLayers = {
         ua: window.config.gtm['send-ua-events'] ? await import('./datalayer/ua.js') : undefined,
@@ -15,6 +15,7 @@ document.addEventListener('turbo:load', async (event) => {
     if (window.config.gtm['clear-on-load']) {
         window.dataLayer = []
     }
+    await dataLayersPromise
 
     let url = new URL(event.detail.url);
 
