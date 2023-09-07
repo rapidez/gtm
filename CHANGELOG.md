@@ -1,6 +1,12 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/gtm/compare/0.11.0...master)
+[Unreleased changes](https://github.com/rapidez/gtm/compare/0.11.1...master)
+## [0.11.1](https://github.com/rapidez/gtm/releases/tag/0.11.1) - 2023-09-07
+
+### Fixed
+
+- Prevent top level await not available error when building (#7)
+
 ## [0.11.0](https://github.com/rapidez/gtm/releases/tag/0.11.0) - 2023-09-06
 
 ### Added
