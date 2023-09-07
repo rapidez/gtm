@@ -1,6 +1,12 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/gtm/compare/0.11.1...master)
+[Unreleased changes](https://github.com/rapidez/gtm/compare/0.11.2...master)
+## [0.11.2](https://github.com/rapidez/gtm/releases/tag/0.11.2) - 2023-09-07
+
+### Fixed
+
+- Ensure datalayer providers are imported before sending pageview events (#8)
+
 ## [0.11.1](https://github.com/rapidez/gtm/releases/tag/0.11.1) - 2023-09-07
 
 ### Fixed
