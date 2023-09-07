@@ -1,9 +1,12 @@
 window.removeTrailingZeros = (price) =>  parseFloat(parseFloat(price).toString());
 
-window.dataLayers = {
-    ua: window.config.gtm['send-ua-events'] ? await import('./datalayer/ua.js') : undefined,
-    ga4: window.config.gtm['send-ga4-events'] ? await import('./datalayer/ga4.js') : undefined,
-}
+(async () => {
+    // This async function is in order to work around "ERROR: Top-level await is not available" when building for older browsers.
+    window.dataLayers = {
+        ua: window.config.gtm['send-ua-events'] ? await import('./datalayer/ua.js') : undefined,
+        ga4: window.config.gtm['send-ga4-events'] ? await import('./datalayer/ga4.js') : undefined,
+    }
+})()
 
 document.addEventListener('turbo:load', async (event) => {
     if (!('dataLayer' in window)) {
