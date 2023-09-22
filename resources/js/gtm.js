@@ -88,7 +88,7 @@ document.addEventListener('turbo:load', async (event) => {
             axios.post(config.magento_url + '/graphql', {
                 query:
                 `mutation StartTransaction(
-                    $cartId: String
+                    $cartId: String!
                     $gaUserId: String
                 ) {
                     AddGaUserId (
