@@ -1,6 +1,12 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/gtm/compare/0.11.2...master)
+[Unreleased changes](https://github.com/rapidez/gtm/compare/0.11.3...master)
+## [0.11.3](https://github.com/rapidez/gtm/releases/tag/0.11.3) - 2023-09-22
+
+### Added
+
+- Laravel 10 support (31a8617)
+
 ## [0.11.2](https://github.com/rapidez/gtm/releases/tag/0.11.2) - 2023-09-07
 
 ### Fixed
