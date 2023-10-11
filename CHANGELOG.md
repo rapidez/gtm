@@ -1,6 +1,12 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/gtm/compare/0.11.3...master)
+[Unreleased changes](https://github.com/rapidez/gtm/compare/0.12.0...master)
+## [0.12.0](https://github.com/rapidez/gtm/releases/tag/0.12.0) - 2023-10-11
+
+### Added
+
+- Make CartId required (#9)
+
 ## [0.11.3](https://github.com/rapidez/gtm/releases/tag/0.11.3) - 2023-09-22
 
 ### Added
