@@ -101,6 +101,15 @@ document.addEventListener('turbo:load', async (event) => {
             let gaUserId = getUserId();
             let gaSessionId = getSessionId();
 
+            let options = { headers: {} }
+            if (localStorage.token) {
+                options['headers']['Authorization'] = `Bearer ${localStorage.token}`
+            }
+
+            if (!localStorage.mask) {
+                return
+            }
+
             axios.post(config.magento_url + '/graphql', {
                 query:
                 `mutation StartTransaction(
