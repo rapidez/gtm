@@ -1,6 +1,12 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/gtm/compare/0.12.1...master)
+[Unreleased changes](https://github.com/rapidez/gtm/compare/0.12.2...master)
+## [0.12.2](https://github.com/rapidez/gtm/releases/tag/0.12.2) - 2023-10-12
+
+### Fixed
+
+- Add authorisation options back again
+
 ## [0.12.1](https://github.com/rapidez/gtm/releases/tag/0.12.1) - 2023-10-12
 
 ### Added
