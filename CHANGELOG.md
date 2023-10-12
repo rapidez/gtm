@@ -1,6 +1,12 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/gtm/compare/0.12.0...master)
+[Unreleased changes](https://github.com/rapidez/gtm/compare/0.12.1...master)
+## [0.12.1](https://github.com/rapidez/gtm/releases/tag/0.12.1) - 2023-10-12
+
+### Added
+
+- Add support for the new serverside analytics (#10)
+
 ## [0.12.0](https://github.com/rapidez/gtm/releases/tag/0.12.0) - 2023-10-11
 
 ### Added
