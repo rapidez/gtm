@@ -1,5 +1,37 @@
 window.removeTrailingZeros = (price) =>  parseFloat(parseFloat(price).toString());
 
+function getUserId() {
+    let gaCookie = window.app.$cookies.get('_ga')
+
+    if (!gaCookie) {
+        return
+    }
+
+    gaCookie = gaCookie.split('.')
+
+    if (gaCookie.length !== 4) {
+        return
+    }
+
+    return gaCookie[2] + '.' + gaCookie[3]
+}
+
+function getSessionId() {
+    let gaId = Object.keys(window?.google_tag_manager || {})?.find((key) => key.match(/G-[0-9A-Z]+/))
+
+    if (!gaId) {
+        return
+    }
+
+    let gsCookie = window.app.$cookies.get('_ga_' + gaId.substring(2));
+
+    if (!gsCookie) {
+        return
+    }
+
+    return gsCookie.split('.')?.[2]
+}
+
 let dataLayersPromise = (async () => {
     // This async function is in order to work around "ERROR: Top-level await is not available" when building for older browsers.
     window.dataLayers = {
@@ -66,38 +98,20 @@ document.addEventListener('turbo:load', async (event) => {
 
     if (window.config.gtm['elgentos-serverside']) {
         window.app.$on('checkout-credentials-saved', (data) => {
-            let gaCookie = window.app.$cookies.get('_ga')
-
-            if (!gaCookie) {
-                return
-            }
-
-            gaCookie = gaCookie.split('.')
-
-            if (gaCookie.length !== 4) {
-                return
-            }
-
-            let gaUserId = gaCookie[2] + '.' + gaCookie[3]
-
-            let options = { headers: {} }
-            if (localStorage.token) {
-                options['headers']['Authorization'] = `Bearer ${localStorage.token}`
-            }
-
-            if (!localStorage.mask) {
-                return
-            }
+            let gaUserId = getUserId();
+            let gaSessionId = getSessionId();
 
             axios.post(config.magento_url + '/graphql', {
                 query:
                 `mutation StartTransaction(
                     $cartId: String!
                     $gaUserId: String
+                    $gaSessionId: String
                 ) {
                     AddGaUserId (
                         cartId: $cartId
                         gaUserId: $gaUserId
+                        gaSessionId: $gaSessionId
                     ) {
                         cartId
                         maskedId
@@ -106,6 +120,7 @@ document.addEventListener('turbo:load', async (event) => {
                 variables: {
                     cartId: localStorage.mask,
                     gaUserId: gaUserId,
+                    gaSessionId: gaSessionId,
                 }
             }, options)
         });
