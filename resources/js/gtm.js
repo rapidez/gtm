@@ -102,8 +102,8 @@ document.addEventListener('turbo:load', async (event) => {
             let gaSessionId = getSessionId();
 
             let options = { headers: {} }
-            if (localStorage.token) {
-                options['headers']['Authorization'] = `Bearer ${localStorage.token}`
+            if (window.magentoUser.defaults.headers.common['Authorization']?.length > 7) {
+                options['headers']['Authorization'] = window.magentoUser.defaults.headers.common['Authorization']
             }
 
             if (!localStorage.mask) {
