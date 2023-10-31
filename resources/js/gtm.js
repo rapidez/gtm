@@ -118,9 +118,11 @@ document.addEventListener('turbo:load', async (event) => {
                     $gaSessionId: String
                 ) {
                     AddGaUserId (
-                        cartId: $cartId
-                        gaUserId: $gaUserId
-                        gaSessionId: $gaSessionId
+                        input: {
+                            cartId: $cartId
+                            gaUserId: $gaUserId
+                            gaSessionId: $gaSessionId
+                        }
                     ) {
                         cartId
                         maskedId
