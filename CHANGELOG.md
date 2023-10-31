@@ -1,6 +1,14 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/gtm/compare/0.12.2...master)
+[Unreleased changes](https://github.com/rapidez/gtm/compare/0.13.0...master)
+## [0.13.0](https://github.com/rapidez/gtm/releases/tag/0.13.0) - 2023-10-31
+
+### Fixed
+
+- Use authorization header from core if it is filled
+- Support new elgentos schema from 1.2.0+
+
+
 ## [0.12.2](https://github.com/rapidez/gtm/releases/tag/0.12.2) - 2023-10-12
 
 ### Fixed
