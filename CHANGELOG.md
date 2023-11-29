@@ -1,6 +1,12 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/gtm/compare/0.13.0...master)
+[Unreleased changes](https://github.com/rapidez/gtm/compare/0.13.1...master)
+## [0.13.1](https://github.com/rapidez/gtm/releases/tag/0.13.1) - 2023-11-29
+
+### Fixed
+
+- Use entity_id with fallback to id (#13)
+
 ## [0.13.0](https://github.com/rapidez/gtm/releases/tag/0.13.0) - 2023-10-31
 
 ### Fixed
