@@ -39,7 +39,7 @@ class GTMServiceProvider extends ServiceProvider
             'frontend.gtm.productpage' => [
                 'name' => 'window.config.product.name',
                 'item_name' => 'window.config.product.name',
-                'id' => 'window.config.product.id',
+                'id' => 'window.config.product.entity_id || window.config.product.id',
                 'item_id' => 'window.config.product.sku',
                 'price' => 'removeTrailingZeros(window.config.product.price)',
             ],

@@ -28,7 +28,7 @@ export const addToCart = async (data) => {
             'add': {
                 'products': [{
                     'name': data.product.name,
-                    'id': data.product.id,
+                    'id': data.product.entity_id || data.product.id,
                     'price': removeTrailingZeros(data.product.price),
                     'quantity': data.qty,
                 }]
