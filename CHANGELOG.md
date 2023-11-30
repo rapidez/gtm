@@ -1,6 +1,12 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/gtm/compare/0.13.1...master)
+[Unreleased changes](https://github.com/rapidez/gtm/compare/0.14.0...master)
+## [0.14.0](https://github.com/rapidez/gtm/releases/tag/0.14.0) - 2023-11-30
+
+### Changed
+
+- Move config file to Rapidez folder (#14)
+
 ## [0.13.1](https://github.com/rapidez/gtm/releases/tag/0.13.1) - 2023-11-29
 
 ### Fixed
