@@ -21,7 +21,7 @@ php artisan vendor:publish --provider="Rapidez\Core\RapidezServiceProvider" --ta
 
 ## Multistore
 
-Just add all stores in `config/rapidez-gtm.php` after you've published the config with:
+Just add all stores in `config/rapidez/gtm.php` after you've published the config with:
 ```bash
 php artisan vendor:publish --provider="Rapidez\GTM\GTMServiceProvider" --tag=config
 ```
@@ -36,7 +36,8 @@ php artisan vendor:publish --provider="Rapidez\GTM\GTMServiceProvider" --tag=vie
 
 ## Purchase tracking
 
-This package doesn't send any purchase events as it's better to send those from the backend in case a visitor blocks Analytics with a browser extension, for example with [elgentos/magento2-serversideanalytics](https://github.com/elgentos/magento2-serversideanalytics). To make sure the user ids from Analytics match and the purchase is linked to the correct visitor we advice you to install this fork: [jbclaudio/magento2-serversideanalytics](https://github.com/jbclaudio/magento2-serversideanalytics) which includes a "AddGaUserId" GraphQL mutation so it's possible to push the id from Rapidez to Magento. When installed you can enable it in the `.env` with:
+This package doesn't send any purchase events as it's better to send those from the backend in case a visitor blocks Analytics with a browser extension, for example with [elgentos/magento2-serversideanalytics](https://github.com/elgentos/magento2-serversideanalytics) which includes a "AddGaUserId" GraphQL mutation so it's possible to push the id from Rapidez to Magento. 
+When installed you can enable it in the `.env` with:
 ```env
 GTM_ELGENTOS=true
 ```
@@ -63,7 +64,7 @@ Note that partytown is technically not production ready and still in beta.
 ### Additional domains and CORS
 
 Not all domains support partytown due to their CORS settings (https://partytown.builder.io/proxying-requests)
-This package comes with a proxy for these domains which by default is only set up for GTM (see: config/rapidez-gtm.php)
+This package comes with a proxy for these domains which by default is only set up for GTM (see: config/rapidez/gtm.php)
 If you notice more domains giving CORS errors you can add them to the config or in a comma seperated list in your .env under `GTM_PARTYTOWN_DOMAIN_WHITELIST`.
 
 ### Custom config
