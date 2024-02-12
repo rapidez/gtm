@@ -40,6 +40,14 @@ let dataLayersPromise = (async () => {
     }
 })()
 
+function sendDataLayer(func, ...args) {
+    ['ua', 'ga4'].forEach(layer => {
+        if(dataLayers?.[layer]?.[func]) {
+            dataLayers?.[layer]?.[func](...args);
+        }
+    })
+}
+
 document.addEventListener('turbo:load', async (event) => {
     if (!('dataLayer' in window)) {
         return;
@@ -51,49 +59,45 @@ document.addEventListener('turbo:load', async (event) => {
 
     let url = new URL(event.detail.url);
 
-    dataLayers?.ua?.pageView(event.detail.url);
-    dataLayers?.ga4?.pageView(event.detail.url);
+    sendDataLayer('pageView', event.detail.url);
 
     if (window.config.product) {
-        dataLayers?.ua?.productView(event.detail.url);
-        dataLayers?.ga4?.productView(event.detail.url);
+        sendDataLayer('productView', event.detail.url);
     }
 
     if (url.pathname === '/search' && url.searchParams.has('q')) {
-        dataLayers?.ga4?.search(url.searchParams.get('q'));
+        sendDataLayer('search', url.searchParams.get('q'));
     }
 
     if (url.pathname === '/cart') {
-        dataLayers?.ga4?.viewCart();
+        sendDataLayer('viewCart');
     }
 
     window.app.$on('logged-in', () => {
-        dataLayers?.ga4?.login();
+        sendDataLayer('login');
     })
 
     window.app.$on('cart-add', (data) => {
-        dataLayers?.ua?.addToCart(data);
-        dataLayers?.ga4?.addToCart(data);
+        sendDataLayer('addToCart', data);
     })
 
     window.app.$on('cart-remove', (item) => {
-        dataLayers?.ua?.removeFromCart(item);
-        dataLayers?.ga4?.removeFromCart(item);
+        sendDataLayer('removeFromCart', item);
     })
 
     window.app.$on('checkout-step', (step) => {
-        dataLayers?.ua?.checkoutStep(step);
+        sendDataLayer('checkoutStep', step);
         if (step === 1) {
-            dataLayers?.ga4?.beginCheckout();
+            sendDataLayer('beginCheckout');
         }
     })
 
     window.app.$on('checkout-credentials-saved', () => {
-        dataLayers?.ga4?.addShippingInfo();
+        sendDataLayer('addShippingInfo');
     })
 
     window.app.$on('checkout-payment-saved', () => {
-        dataLayers?.ga4?.addPaymentInfo();
+        sendDataLayer('addPaymentInfo');
     })
 
     if (window.config.gtm['elgentos-serverside']) {

@@ -1,1 +1,2 @@
 import './gtm'
+import './directives'
