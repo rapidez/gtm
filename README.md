@@ -42,6 +42,20 @@ When installed you can enable it in the `.env` with:
 GTM_ELGENTOS=true
 ```
 
+## view_item_list event
+
+To track the `view_item_list` event, you can use the `v-item-list` directive on your product list, for example:
+
+```blade
+v-item-list="{
+    items: items,
+    item_list_id: 'recommended_products',
+    item_list_name: 'Recommended products',
+}"
+```
+
+You can also track it only on intersection by adding the `.intersect` modifier. This defaults to 50% intersection, but can be overridden: `v-item-list.intersect="{ intersection: 80, ... }"`
+
 ## Temporarily disable
 
 If you'd like to test for example the Lighthouse scores without GTM you can disable it by added `?gtm=false` to the url
