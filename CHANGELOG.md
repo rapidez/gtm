@@ -1,6 +1,12 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/gtm/compare/0.14.0...master)
+[Unreleased changes](https://github.com/rapidez/gtm/compare/0.15.0...master)
+## [0.15.0](https://github.com/rapidez/gtm/releases/tag/0.15.0) - 2024-02-14
+
+### Added
+
+- Add v-item-list directive for view_item_list (#15)
+
 ## [0.14.0](https://github.com/rapidez/gtm/releases/tag/0.14.0) - 2023-11-30
 
 ### Changed
