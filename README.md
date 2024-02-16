@@ -54,7 +54,7 @@ v-item-list="{
 }"
 ```
 
-You can also track it only on intersection by adding the `.intersect` modifier. This defaults to 50% intersection, but can be overridden: `v-item-list.intersect="{ intersection: 80, ... }"`
+You can also track it only on intersection by adding the `.intersection` modifier. This defaults to 50% intersection, but can be overridden: `v-item-list.intersection="{ intersection: 80, ... }"`
 
 ## Temporarily disable
 
