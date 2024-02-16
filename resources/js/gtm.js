@@ -41,12 +41,18 @@ let dataLayersPromise = (async () => {
 })()
 
 function sendDataLayer(func, ...args) {
+    if (!'dataLayer' in window) {
+        return
+    }
+    
     ['ua', 'ga4'].forEach(layer => {
         if(dataLayers?.[layer]?.[func]) {
             dataLayers?.[layer]?.[func](...args);
         }
     })
 }
+
+window.sendDataLayer = sendDataLayer;
 
 document.addEventListener('turbo:load', async (event) => {
     if (!('dataLayer' in window)) {
