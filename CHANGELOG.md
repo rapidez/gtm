@@ -1,6 +1,13 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/gtm/compare/0.15.0...master)
+[Unreleased changes](https://github.com/rapidez/gtm/compare/0.15.1...master)
+## [0.15.1](https://github.com/rapidez/gtm/releases/tag/0.15.1) - 2024-02-20
+
+### Fixed
+
+- Add store to elgentos graphql request (#19)
+- Defined sendDataLayer (#18)
+
 ## [0.15.0](https://github.com/rapidez/gtm/releases/tag/0.15.0) - 2024-02-14
 
 ### Added
