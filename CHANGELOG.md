@@ -1,6 +1,12 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/gtm/compare/0.15.1...master)
+[Unreleased changes](https://github.com/rapidez/gtm/compare/0.16.0...master)
+## [0.16.0](https://github.com/rapidez/gtm/releases/tag/0.16.0) - 2024-02-23
+
+### Added
+
+- Enhanced Conversions with user data (#16)
+
 ## [0.15.1](https://github.com/rapidez/gtm/releases/tag/0.15.1) - 2024-02-20
 
 ### Fixed
