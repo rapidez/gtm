@@ -56,6 +56,24 @@ v-item-list="{
 
 You can also track it only on intersection by adding the `.intersect` modifier. This defaults to 50% intersection, but can be overridden: `v-item-list.intersect="{ intersection: 80, ... }"`
 
+## Enhanced Conversions
+
+To track [Enhanced Conversions](https://support.google.com/google-ads/answer/13262500), we supply a seperate file you can run when you have captured the relevant user info you want to push.
+
+for example after subscribing to the newsletter, or entering their details in the checkout. Here's an example of how you could implement it
+
+```javascript
+import { setUserData } from 'Vendor/rapidez/gtm/resources/js/datalayer/google-ads.js';
+
+window.app.$on('logged-in', () => {
+    setUserData();
+});
+
+window.app.$on('checkout-credentials-saved', () => {
+    setUserData();
+});
+```
+
 ## Temporarily disable
 
 If you'd like to test for example the Lighthouse scores without GTM you can disable it by added `?gtm=false` to the url
