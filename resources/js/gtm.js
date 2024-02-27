@@ -41,7 +41,7 @@ let dataLayersPromise = (async () => {
 })()
 
 function sendDataLayer(func, ...args) {
-    if (!'dataLayer' in window) {
+    if (!('dataLayer' in window)) {
         return
     }
     
