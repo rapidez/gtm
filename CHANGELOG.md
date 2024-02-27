@@ -1,6 +1,12 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/gtm/compare/0.16.0...master)
+[Unreleased changes](https://github.com/rapidez/gtm/compare/0.16.1...master)
+## [0.16.1](https://github.com/rapidez/gtm/releases/tag/0.16.1) - 2024-02-27
+
+### Fixed
+
+- Fix dataLayer in window check (#20)
+
 ## [0.16.0](https://github.com/rapidez/gtm/releases/tag/0.16.0) - 2024-02-23
 
 ### Added
