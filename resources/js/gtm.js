@@ -120,30 +120,28 @@ document.addEventListener('turbo:load', async (event) => {
                 return
             }
 
-            axios.post(config.magento_url + '/graphql', {
-                query:
-                `mutation StartTransaction(
-                    $cartId: String!
-                    $gaUserId: String
-                    $gaSessionId: String
-                ) {
-                    AddGaUserId (
-                        input: {
-                            cartId: $cartId
-                            gaUserId: $gaUserId
-                            gaSessionId: $gaSessionId
-                        }
-                    ) {
-                        cartId
-                        maskedId
+            let query = `mutation StartTransaction(
+                $cartId: String!
+                $gaUserId: String
+                $gaSessionId: String
+            ) {
+                AddGaUserId (
+                    input: {
+                        cartId: $cartId
+                        gaUserId: $gaUserId
+                        gaSessionId: $gaSessionId
                     }
-                }`,
-                variables: {
-                    cartId: localStorage.mask,
-                    gaUserId: gaUserId,
-                    gaSessionId: gaSessionId,
+                ) {
+                    cartId
+                    maskedId
                 }
-            }, options)
+            }`
+            let variables = {
+                cartId: localStorage.mask,
+                gaUserId: gaUserId,
+                gaSessionId: gaSessionId,
+            }
+            window.magentoGraphQL(query, variables, options)
         });
     }
 }, {passive: true})
