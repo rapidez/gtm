@@ -1,6 +1,12 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/gtm/compare/0.16.1...master)
+[Unreleased changes](https://github.com/rapidez/gtm/compare/1.0.0...master)
+## [1.0.0](https://github.com/rapidez/gtm/releases/tag/1.0.0) - 2024-03-01
+
+### Added
+
+- Rapidez v2 support (#21)
+
 ## [0.16.1](https://github.com/rapidez/gtm/releases/tag/0.16.1) - 2024-02-27
 
 ### Fixed
