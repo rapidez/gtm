@@ -1,6 +1,6 @@
 export const setUserData = async (userData = {
     email: window.app.user?.email || window.app.guestEmail,
-    phone_number: /[0-9\+]*/.exec(window.app.checkout.billing_address.telephone)[0],
+    phone_number: window.app.checkout.billing_address.telephone.replaceAll(/[^0-9\+]*/g, ''),
     address: {
         first_name: window.app.checkout.billing_address.firstname,
         last_name: window.app.checkout.billing_address.lastname,
