@@ -14,11 +14,12 @@
 
     @if(config('rapidez.gtm.partytown.enabled'))
         partytown.forward.push(['dataLayer.push', { preserveBehavior: true }]);
-        partytown.forward.push('__tag_assistant_forwarder');
-        partytown.mainWindowAccessors.push('__tag_assistant_accessor');
         
         if (window.__TAG_ASSISTANT_API !== undefined) {
             // Tag assistant compatibility
+            partytown.forward.push('__tag_assistant_forwarder');
+            partytown.mainWindowAccessors.push('__tag_assistant_accessor');
+            
             const gtmDebugLog = (msg, data) => {
                 if (window.partytown.debug) {
                     console.debug(
