@@ -9,13 +9,18 @@
                 return @json(route('rapidez-gtm::proxy', ['url' => '/'], false) . '/') + url.href;
             }
             return url
-        }
+        },
+        resolveSendBeaconRequestParameters: function (url) {
+            return url.hostname.includes('analytics.google') || url.hostname.includes('google-analytics')
+                ? { keepalive: false }
+                : {};
+        },
     }
 
     @if(config('rapidez.gtm.partytown.enabled'))
         partytown.forward.push(['dataLayer.push', { preserveBehavior: true }]);
         
-        if (window.__TAG_ASSISTANT_API !== undefined) {
+        if ({{ request()->has('gtm_debug') }} || window.__TAG_ASSISTANT_API !== undefined) {
             // Tag assistant compatibility
             partytown.forward.push('__tag_assistant_forwarder');
             partytown.mainWindowAccessors.push('__tag_assistant_accessor');
@@ -31,7 +36,7 @@
                 }
             }
 
-            __tag_assistant_accessor = {
+            window.__tag_assistant_accessor = {
                 receiver: function(...args) {
                     window.__tag_assistant_forwarder.apply(null, arguments);
                 },
