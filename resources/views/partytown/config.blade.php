@@ -20,7 +20,7 @@
     @if(config('rapidez.gtm.partytown.enabled'))
         partytown.forward.push(['dataLayer.push', { preserveBehavior: true }]);
         
-        if ({{ request()->has('gtm_debug') }} || window.__TAG_ASSISTANT_API !== undefined) {
+        if ({{ request()->has('gtm_debug') ? 'true' : 'false' }} || window.__TAG_ASSISTANT_API !== undefined) {
             // Tag assistant compatibility
             partytown.forward.push('__tag_assistant_forwarder');
             partytown.mainWindowAccessors.push('__tag_assistant_accessor');
