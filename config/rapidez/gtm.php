@@ -9,8 +9,8 @@ return [
 
     'clear-on-load' => env('GTM_CLEAR_ON_LOAD', false),
 
-    'send-ua-events' => env('GTM_SEND_UA_EVENTS', true),
-    'send-ga4-events' => env('GTM_SEND_GA4_EVENTS', false),
+    'send-ua-events' => env('GTM_SEND_UA_EVENTS', false),
+    'send-ga4-events' => env('GTM_SEND_GA4_EVENTS', true),
 
     'partytown' => [
         'enabled' => env('GTM_PARTYTOWN_ENABLE', false),
