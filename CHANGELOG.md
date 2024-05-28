@@ -1,6 +1,22 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/gtm/compare/1.0.0...master)
+[Unreleased changes](https://github.com/rapidez/gtm/compare/2.0.0...master)
+## [2.0.0](https://github.com/rapidez/gtm/releases/tag/2.0.0) - 2024-05-28
+
+### Added
+
+- Laravel 11 support (#25)
+- Support tag assistant debugger in Partytown (#23)
+
+### Changed
+
+- Make GA4 the default event sender (#24)
+
+### Fixed
+
+- Properly replace phone number characters (#22)
+- 
+
 ## [1.0.0](https://github.com/rapidez/gtm/releases/tag/1.0.0) - 2024-03-01
 
 ### Added
