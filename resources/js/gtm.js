@@ -106,6 +106,10 @@ document.addEventListener('turbo:load', async (event) => {
         sendDataLayer('addPaymentInfo');
     })
 
+    window.app.$on('checkout-success', (order) => {
+        sendDataLayer('purchase', order);
+    })
+
     if (window.config.gtm['elgentos-serverside']) {
         window.app.$on('checkout-credentials-saved', (data) => {
             let gaUserId = getUserId();

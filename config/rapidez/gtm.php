@@ -7,6 +7,9 @@ return [
 
     'elgentos-serverside' => env('GTM_ELGENTOS', false),
 
+    // If elgentos already fires the purchase event we must not fire it twice.
+    'purchase-event-name' => env('GTM_PURCHASE_EVENT_NAME', env('GTM_ELGENTOS', false) ? 'checkout_success' : 'purchase'),
+
     'clear-on-load' => env('GTM_CLEAR_ON_LOAD', false),
 
     'send-ua-events' => env('GTM_SEND_UA_EVENTS', false),

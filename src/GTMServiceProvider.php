@@ -29,6 +29,7 @@ class GTMServiceProvider extends ServiceProvider
 
         config([
             'frontend.gtm.elgentos-serverside' => config('rapidez.gtm.elgentos-serverside'),
+            'frontend.gtm.purchase-event-name' => config('rapidez.gtm.purchase-event-name'),
             'frontend.gtm.clear-on-load' => config('rapidez.gtm.clear-on-load'),
             'frontend.gtm.send-ua-events' => config('rapidez.gtm.send-ua-events'),
             'frontend.gtm.send-ga4-events' => config('rapidez.gtm.send-ga4-events'),
