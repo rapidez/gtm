@@ -218,3 +218,29 @@ export const addPaymentInfo = async () => {
         }
     })
 }
+
+export const purchase = async (order) => {
+    // https://developers.google.com/analytics/devguides/collection/ga4/reference/events?client_type=gtm#purchase
+    dataLayer.push({ ecommerce: null })
+    dataLayer.push({
+        event: window.config.gtm['purchase-event-name'],
+        ecommerce: {
+            currency: order.base_currency_code,
+            value: removeTrailingZeros(order.base_grand_total),
+            transaction_id: order.increment_id,
+            coupon: order.coupon_code,
+            shipping: removeTrailingZeros(order.base_shipping_amount),
+            tax: removeTrailingZeros(order.tax_amount),
+            items: order.sales_order_items.map((item, index) => {
+                return {
+                    item_id: item.sku,
+                    item_name: item.name,
+                    discount: removeTrailingZeros(item.base_discount_amount),
+                    index: index,
+                    price: removeTrailingZeros(item.base_price_incl_tax),
+                    quantity: removeTrailingZeros(item.qty_ordered)
+                };
+            }),
+        }
+    })
+}
