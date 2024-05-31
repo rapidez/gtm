@@ -1,6 +1,12 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/gtm/compare/2.0.0...master)
+[Unreleased changes](https://github.com/rapidez/gtm/compare/2.1.0...master)
+## [2.1.0](https://github.com/rapidez/gtm/releases/tag/2.1.0) - 2024-05-31
+
+### Added
+
+- Optionally fire purchase or checkout_success event on the success page (#26)
+
 ## [2.0.0](https://github.com/rapidez/gtm/releases/tag/2.0.0) - 2024-05-28
 
 ### Added
