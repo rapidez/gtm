@@ -1,6 +1,12 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/gtm/compare/2.1.0...master)
+[Unreleased changes](https://github.com/rapidez/gtm/compare/2.1.1...master)
+## [2.1.1](https://github.com/rapidez/gtm/releases/tag/2.1.1) - 2024-06-11
+
+### Fixed
+
+- Get cart items from graphql definition (#27)
+
 ## [2.1.0](https://github.com/rapidez/gtm/releases/tag/2.1.0) - 2024-05-31
 
 ### Added
