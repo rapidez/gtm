@@ -144,13 +144,13 @@ export const viewCart = async () => {
         event: 'view_cart',
         ecommerce: {
             currency: window.config.currency,
-            value: removeTrailingZeros(window.app.cart.total),
+            value: removeTrailingZeros(window.app.cart?.prices?.grand_total?.value),
             items: Object.values(window.app.cart.items).map(function (item) {
                 return {
-                    item_name: item.name,
-                    item_id: item.sku,
-                    price: item.price,
-                    quantity: item.qty,
+                    item_name: item?.product?.name,
+                    item_id: item?.product?.sku,
+                    price: item?.prices?.price_including_tax?.value,
+                    quantity: item?.quantity,
                 }
             }),
         }
@@ -164,13 +164,13 @@ export const beginCheckout = async (step) => {
         event: 'begin_checkout',
         ecommerce: {
             currency: window.config.currency,
-            value: removeTrailingZeros(window.app.cart.total),
+            value: removeTrailingZeros(window.app.cart?.prices?.grand_total?.value),
             items: Object.values(window.app.cart.items).map(function (item) {
                 return {
-                    item_name: item.name,
-                    item_id: item.sku,
-                    price: item.price,
-                    quantity: item.qty,
+                    item_name: item?.product?.name,
+                    item_id: item?.product?.sku,
+                    price: item?.prices?.price_including_tax?.value,
+                    quantity: item?.quantity,
                 }
             }),
         }
@@ -184,14 +184,14 @@ export const addShippingInfo = async () => {
         event: 'add_shipping_info',
         ecommerce: {
             currency: window.config.currency,
-            value: removeTrailingZeros(window.app.cart.total),
+            value: removeTrailingZeros(window.app.cart?.prices?.grand_total?.value),
             shipping_tier: window.app.checkout.shipping_method,
             items: Object.values(window.app.cart.items).map(function (item) {
                 return {
-                    item_name: item.name,
-                    item_id: item.sku,
-                    price: item.price,
-                    quantity: item.qty,
+                    item_name: item?.product?.name,
+                    item_id: item?.product?.sku,
+                    price: item?.prices?.price_including_tax?.value,
+                    quantity: item?.quantity,
                 }
             }),
         }
@@ -205,14 +205,14 @@ export const addPaymentInfo = async () => {
         event: 'add_payment_info',
         ecommerce: {
             currency: window.config.currency,
-            value: removeTrailingZeros(window.app.cart.total),
+            value: removeTrailingZeros(window.app.cart?.prices?.grand_total?.value),
             payment_type: window.app.checkout.payment_method,
             items: Object.values(window.app.cart.items).map(function (item) {
                 return {
-                    item_name: item.name,
-                    item_id: item.sku,
-                    price: item.price,
-                    quantity: item.qty,
+                    item_name: item?.product?.name,
+                    item_id: item?.product?.sku,
+                    price: item?.prices?.price_including_tax?.value,
+                    quantity: item?.quantity,
                 }
             }),
         }

@@ -63,10 +63,10 @@ export const checkoutStep = async (step) => {
                 'actionField': {'step': step},
                 'products': Object.values(window.app.cart.items).map(function (item) {
                     return {
-                        name: item.name,
-                        id: item.product_id,
-                        price: item.price,
-                        quantity: item.qty,
+                        name: item?.product?.name,
+                        id: item?.product?.sku,
+                        price: item?.prices?.price_including_tax?.value,
+                        quantity: item?.quantity,
                     }
                 }),
             }
