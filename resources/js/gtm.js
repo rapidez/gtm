@@ -115,11 +115,6 @@ document.addEventListener('turbo:load', async (event) => {
             let gaUserId = getUserId();
             let gaSessionId = getSessionId();
 
-            let options = { headers: { Store: window.config.store_code } }
-            if (window.magentoUser.defaults.headers.common['Authorization']?.length > 7) {
-                options['headers']['Authorization'] = window.magentoUser.defaults.headers.common['Authorization']
-            }
-
             if (!localStorage.mask || (!gaUserId && !gaSessionId)) {
                 return
             }
@@ -145,7 +140,7 @@ document.addEventListener('turbo:load', async (event) => {
                 gaUserId: gaUserId,
                 gaSessionId: gaSessionId,
             }
-            window.magentoGraphQL(query, variables, options)
+            window.magentoGraphQL(query, variables)
         });
     }
 }, {passive: true})
