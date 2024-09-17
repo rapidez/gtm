@@ -1,6 +1,12 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/gtm/compare/2.1.1...master)
+[Unreleased changes](https://github.com/rapidez/gtm/compare/2.1.2...master)
+## [2.1.2](https://github.com/rapidez/gtm/releases/tag/2.1.2) - 2024-09-16
+
+### Fixed
+
+- Remove Authorization header adding (#28)
+
 ## [2.1.1](https://github.com/rapidez/gtm/releases/tag/2.1.1) - 2024-06-11
 
 ### Fixed
