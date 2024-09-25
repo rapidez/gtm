@@ -5,7 +5,7 @@
         "rapidez"
     ],
     "homepage": "https://rapidez.io",
-    "license": "GPL-3.0",
+    "license": "GPL-3.0-or-later",
     "authors": [
         {
             "name": "Roy Duineveld",
