@@ -138,6 +138,10 @@ export const removeFromCart = async (item) => {
 }
 
 export const viewCart = async () => {
+    if (!window.app.cart?.items) {
+        return
+    }
+    
     // https://developers.google.com/analytics/devguides/collection/ga4/reference/events?client_type=gtm#view_cart
     dataLayer.push({ ecommerce: null })
     dataLayer.push({
@@ -158,6 +162,10 @@ export const viewCart = async () => {
 }
 
 export const beginCheckout = async (step) => {
+    if (!window.app.cart?.items) {
+        return
+    }
+    
     // https://developers.google.com/analytics/devguides/collection/ga4/reference/events?client_type=gtm#begin_checkout
     dataLayer.push({ ecommerce: null })
     dataLayer.push({
