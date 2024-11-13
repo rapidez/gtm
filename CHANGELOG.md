@@ -1,6 +1,12 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/gtm/compare/2.1.2...master)
+[Unreleased changes](https://github.com/rapidez/gtm/compare/2.1.3...2.1.3)
+## [2.1.3](https://github.com/rapidez/gtm/releases/tag/2.1.3) - 2024-11-12
+
+### Fixed
+
+- Check for cart items existing (#30)
+
 ## [2.1.2](https://github.com/rapidez/gtm/releases/tag/2.1.2) - 2024-09-16
 
 ### Fixed
