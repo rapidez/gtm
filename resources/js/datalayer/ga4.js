@@ -108,7 +108,7 @@ export const addToCart = async (data) => {
         event: 'add_to_cart',
         ecommerce: {
             currency: window.config.currency,
-            value: removeTrailingZeros(data.product.price),
+            value: removeTrailingZeros(data.product.price * data.qty),
             items: [{
                 item_id: data.product.sku,
                 item_name: data.product.name,
@@ -126,12 +126,12 @@ export const removeFromCart = async (item) => {
         event: 'remove_from_cart',
         ecommerce: {
             currency: window.config.currency,
-            value: removeTrailingZeros(item.price),
+            value: removeTrailingZeros(item?.prices?.row_total_including_tax?.value),
             items: [{
-                item_id: item.sku,
-                item_name: item.name,
-                price: removeTrailingZeros(item.price),
-                quantity: item.qty,
+                item_id: item?.product?.sku,
+                item_name: item?.product?.name,
+                price: removeTrailingZeros(item?.prices?.price_including_tax?.value),
+                quantity: item?.quantity,
             }]
         }
     })
@@ -193,7 +193,7 @@ export const addShippingInfo = async () => {
         ecommerce: {
             currency: window.config.currency,
             value: removeTrailingZeros(window.app.cart?.prices?.grand_total?.value),
-            shipping_tier: window.app.checkout.shipping_method,
+            shipping_tier: window.app.cart?.shipping_addresses?.[0]?.selected_shipping_method?.method_code,
             items: Object.values(window.app.cart.items).map(function (item) {
                 return {
                     item_name: item?.product?.name,
@@ -214,7 +214,7 @@ export const addPaymentInfo = async () => {
         ecommerce: {
             currency: window.config.currency,
             value: removeTrailingZeros(window.app.cart?.prices?.grand_total?.value),
-            payment_type: window.app.checkout.payment_method,
+            payment_type: window.app.cart?.selected_payment_method?.code,
             items: Object.values(window.app.cart.items).map(function (item) {
                 return {
                     item_name: item?.product?.name,
@@ -233,21 +233,22 @@ export const purchase = async (order) => {
     dataLayer.push({
         event: window.config.gtm['purchase-event-name'],
         ecommerce: {
-            currency: order.base_currency_code,
-            value: removeTrailingZeros(order.base_grand_total),
-            transaction_id: order.increment_id,
-            coupon: order.coupon_code,
-            shipping: removeTrailingZeros(order.base_shipping_amount),
-            tax: removeTrailingZeros(order.tax_amount),
-            items: order.sales_order_items.map((item, index) => {
+            currency: order?.total?.base_grand_total?.currency || window.config.currency,
+            value: removeTrailingZeros(order?.total?.base_grand_total?.value),
+            transaction_id: order?.number,
+            coupon: order?.total?.discounts?.find((discount) => discount?.coupon?.code)?.coupon?.code,
+            shipping: removeTrailingZeros(order?.total?.total_shipping?.value),
+            tax: removeTrailingZeros(order?.total?.total_tax?.value),
+            items: Object.values(order?.items || {}).map((item, index) => {
                 return {
-                    item_id: item.sku,
-                    item_name: item.name,
-                    discount: removeTrailingZeros(item.base_discount_amount),
                     index: index,
-                    price: removeTrailingZeros(item.base_price_incl_tax),
-                    quantity: removeTrailingZeros(item.qty_ordered)
-                };
+                    item_id: item?.product?.sku,
+                    item_name: item?.product?.name,
+                    price: item?.product_sale_price?.value * item?.quantity_ordered,
+                    coupon: item?.discounts?.find((discount) => discount?.coupon?.code)?.coupon?.code,
+                    discount: item?.discounts?.reduce((discountAmount, discount) => discountAmount + (discount?.amount?.value || 0), 0),
+                    quantity: item?.quantity_ordered
+                }
             }),
         }
     })

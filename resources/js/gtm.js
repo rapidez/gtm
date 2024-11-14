@@ -1,3 +1,5 @@
+import * as ga4 from './datalayer/ga4.js';
+
 window.removeTrailingZeros = (price) =>  parseFloat(parseFloat(price).toString());
 
 function getUserId() {
@@ -32,27 +34,20 @@ function getSessionId() {
     return gsCookie.split('.')?.[2]
 }
 
-let dataLayersPromise = (async () => {
-    // This async function is in order to work around "ERROR: Top-level await is not available" when building for older browsers.
-    window.dataLayers = {
-        ua: window.config.gtm['send-ua-events'] ? await import('./datalayer/ua.js') : undefined,
-        ga4: window.config.gtm['send-ga4-events'] ? await import('./datalayer/ga4.js') : undefined,
-    }
-})()
+window.dataLayers = {
+    ga4: ga4,
+}
 
-function sendDataLayer(func, ...args) {
+/** @deprecated Call the respective function on the ga4 or window.ga4 object instead. */
+window.sendDataLayer = function (func, ...args) {
     if (!('dataLayer' in window)) {
         return
     }
     
-    ['ua', 'ga4'].forEach(layer => {
-        if(dataLayers?.[layer]?.[func]) {
-            dataLayers?.[layer]?.[func](...args);
-        }
-    })
+    if(dataLayers?.ga4?.[func]) {
+        dataLayers?.ga4?.[func](...args);
+    }
 }
-
-window.sendDataLayer = sendDataLayer;
 
 document.addEventListener('turbo:load', async (event) => {
     if (!('dataLayer' in window)) {
@@ -61,53 +56,49 @@ document.addEventListener('turbo:load', async (event) => {
     if (window.config.gtm['clear-on-load']) {
         window.dataLayer = []
     }
-    await dataLayersPromise
 
     let url = new URL(event.detail.url);
 
-    sendDataLayer('pageView', event.detail.url);
+    ga4.pageView(event.detail.url);
 
     if (window.config.product) {
-        sendDataLayer('productView', event.detail.url);
+        ga4.productView()
     }
 
     if (url.pathname === '/search' && url.searchParams.has('q')) {
-        sendDataLayer('search', url.searchParams.get('q'));
+        ga4.search(url.searchParams.get('q'))
     }
 
     if (url.pathname === '/cart') {
-        sendDataLayer('viewCart');
+        ga4.viewCart();
+    }
+
+    if (url.pathname === '/checkout') {
+        ga4.beginCheckout()
     }
 
     window.app.$on('logged-in', () => {
-        sendDataLayer('login');
+        ga4.login()
     })
 
     window.app.$on('cart-add', (data) => {
-        sendDataLayer('addToCart', data);
+        ga4.addToCart(data)
     })
 
     window.app.$on('cart-remove', (item) => {
-        sendDataLayer('removeFromCart', item);
-    })
-
-    window.app.$on('checkout-step', (step) => {
-        sendDataLayer('checkoutStep', step);
-        if (step === 1) {
-            sendDataLayer('beginCheckout');
-        }
+        ga4.removeFromCart(item)
     })
 
     window.app.$on('checkout-credentials-saved', () => {
-        sendDataLayer('addShippingInfo');
+        ga4.addShippingInfo()
     })
 
     window.app.$on('checkout-payment-saved', () => {
-        sendDataLayer('addPaymentInfo');
+        ga4.addPaymentInfo()
     })
 
     window.app.$on('checkout-success', (order) => {
-        sendDataLayer('purchase', order);
+        ga4.purchase(order)
     })
 
     if (window.config.gtm['elgentos-serverside']) {
