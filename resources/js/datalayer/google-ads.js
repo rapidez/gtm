@@ -1,13 +1,13 @@
 export const setUserData = async (userData = {
-    email: window.app.user?.email || window.app.guestEmail,
-    phone_number: window.app.checkout.billing_address.telephone.replaceAll(/[^0-9\+]*/g, ''),
+    email: window.app.user?.email || window.app.cart?.email || window.app.guestEmail,
+    phone_number: window.app.cart?.billing_address?.telephone?.replaceAll(/[^0-9\+]*/g, ''),
     address: {
-        first_name: window.app.checkout.billing_address.firstname,
-        last_name: window.app.checkout.billing_address.lastname,
-        street: window.app.checkout.billing_address.street.join("\n"),
-        city: window.app.checkout.billing_address.city,
-        postal_code: window.app.checkout.billing_address.postcode,
-        country: window.app.checkout.billing_address.country_id,
+        first_name: window.app.cart?.billing_address?.firstname,
+        last_name: window.app.cart?.billing_address?.lastname,
+        street: window.app.cart?.billing_address?.street?.join("\n"),
+        city: window.app.cart?.billing_address?.city,
+        postal_code: window.app.cart?.billing_address?.postcode,
+        country: window.app.cart?.billing_address?.country?.code,
     }
 }) => {
     // https://support.google.com/google-ads/answer/13262500
