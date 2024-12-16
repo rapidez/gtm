@@ -54,7 +54,7 @@ function sendDataLayer(func, ...args) {
 
 window.sendDataLayer = sendDataLayer;
 
-document.addEventListener('turbo:load', async (event) => {
+document.addEventListener('vue:loaded', async (event) => {
     if (!('dataLayer' in window)) {
         return;
     }
