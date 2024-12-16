@@ -49,7 +49,7 @@ window.sendDataLayer = function (func, ...args) {
     }
 }
 
-document.addEventListener('turbo:load', async (event) => {
+document.addEventListener('vue:loaded', async (event) => {
     if (!('dataLayer' in window)) {
         return;
     }
