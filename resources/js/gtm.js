@@ -49,7 +49,7 @@ window.sendDataLayer = function (func, ...args) {
     }
 }
 
-document.addEventListener('vue:loaded', async (event) => {
+document.addEventListener('vue:loaded', async () => {
     if (!('dataLayer' in window)) {
         return;
     }
@@ -57,9 +57,9 @@ document.addEventListener('vue:loaded', async (event) => {
         window.dataLayer = []
     }
 
-    let url = new URL(event.detail.url);
+    let url = new URL(window.location.href);
 
-    ga4.pageView(event.detail.url);
+    ga4.pageView(window.location.href);
 
     if (window.config.product) {
         ga4.productView()
