@@ -61,23 +61,6 @@ document.addEventListener('vue:loaded', async (event) => {
     if (window.config.gtm['clear-on-load']) {
         window.dataLayer = []
     }
-    await dataLayersPromise
-
-    let url = new URL(event.detail.url);
-
-    sendDataLayer('pageView', event.detail.url);
-
-    if (window.config.product) {
-        sendDataLayer('productView', event.detail.url);
-    }
-
-    if (url.pathname === '/search' && url.searchParams.has('q')) {
-        sendDataLayer('search', url.searchParams.get('q'));
-    }
-
-    if (url.pathname === '/cart') {
-        sendDataLayer('viewCart');
-    }
 
     window.app.$on('logged-in', () => {
         sendDataLayer('login');
@@ -109,6 +92,24 @@ document.addEventListener('vue:loaded', async (event) => {
     window.app.$on('checkout-success', (order) => {
         sendDataLayer('purchase', order);
     })
+    
+    await dataLayersPromise
+
+    let url = new URL(window.location.href);
+
+    sendDataLayer('pageView', window.location.href);
+
+    if (window.config.product) {
+        sendDataLayer('productView', window.location.href);
+    }
+
+    if (url.pathname === '/search' && url.searchParams.has('q')) {
+        sendDataLayer('search', url.searchParams.get('q'));
+    }
+
+    if (url.pathname === '/cart') {
+        sendDataLayer('viewCart');
+    }
 
     if (window.config.gtm['elgentos-serverside']) {
         window.app.$on('checkout-credentials-saved', (data) => {
