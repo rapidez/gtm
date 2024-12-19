@@ -40,11 +40,13 @@ let dataLayersPromise = (async () => {
     }
 })()
 
-function sendDataLayer(func, ...args) {
+async function sendDataLayer(func, ...args) {
     if (!('dataLayer' in window)) {
         return
     }
-    
+
+    await dataLayersPromise;
+
     ['ua', 'ga4'].forEach(layer => {
         if(dataLayers?.[layer]?.[func]) {
             dataLayers?.[layer]?.[func](...args);
@@ -61,14 +63,13 @@ document.addEventListener('vue:loaded', async (event) => {
     if (window.config.gtm['clear-on-load']) {
         window.dataLayer = []
     }
-    await dataLayersPromise
 
-    let url = new URL(event.detail.url);
+    let url = new URL(window.location.href);
 
-    sendDataLayer('pageView', event.detail.url);
+    sendDataLayer('pageView', window.location.href);
 
     if (window.config.product) {
-        sendDataLayer('productView', event.detail.url);
+        sendDataLayer('productView', window.location.href);
     }
 
     if (url.pathname === '/search' && url.searchParams.has('q')) {
@@ -78,7 +79,7 @@ document.addEventListener('vue:loaded', async (event) => {
     if (url.pathname === '/cart') {
         sendDataLayer('viewCart');
     }
-
+    
     window.app.$on('logged-in', () => {
         sendDataLayer('login');
     })
