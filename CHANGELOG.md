@@ -1,6 +1,13 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/gtm/compare/3.0.0...3.0.0)
+[Unreleased changes](https://github.com/rapidez/gtm/compare/3.0.1...3.0.1)
+## [3.0.1](https://github.com/rapidez/gtm/releases/tag/3.0.1) - 2024-12-20
+
+### Fixed
+
+- Listen to vue:loaded (#32)
+- Fixed missing event detail url (#33)
+
 ## [3.0.0](https://github.com/rapidez/gtm/releases/tag/3.0.0) - 2024-12-13
 
 ### Added
