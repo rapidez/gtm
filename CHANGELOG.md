@@ -1,6 +1,12 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/gtm/compare/3.0.1...3.0.1)
+[Unreleased changes](https://github.com/rapidez/gtm/compare/3.1.0...3.1.0)
+## [3.1.0](https://github.com/rapidez/gtm/releases/tag/3.1.0) - 2025-04-10
+
+### Changed
+
+- Handle the Laravel requirement through the core requirement (889baa2)
+
 ## [3.0.1](https://github.com/rapidez/gtm/releases/tag/3.0.1) - 2024-12-20
 
 ### Fixed
