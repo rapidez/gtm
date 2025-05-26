@@ -31,7 +31,7 @@ function getSessionId() {
         return
     }
 
-    return gsCookie.split('.')?.[2]
+    return gsCookie?.match(/^GS[0-9]\.[0-9]\.s?(?<session_id>[0-9]+)/)?.groups?.session_id
 }
 
 window.dataLayers = {
