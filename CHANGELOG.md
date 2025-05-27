@@ -1,6 +1,12 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/gtm/compare/3.1.0...3.1.0)
+[Unreleased changes](https://github.com/rapidez/gtm/compare/3.2.0...3.2.0)
+## [3.2.0](https://github.com/rapidez/gtm/releases/tag/3.2.0) - 2025-05-27
+
+### Changed
+
+- Support new session GS format (#35)
+
 ## [3.1.0](https://github.com/rapidez/gtm/releases/tag/3.1.0) - 2025-04-10
 
 ### Changed
