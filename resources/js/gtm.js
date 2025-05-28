@@ -77,6 +77,10 @@ document.addEventListener('vue:loaded', async () => {
         ga4.beginCheckout()
     }
 
+    window.app.$on('registered', () => {
+       ga4.register()
+    });
+    
     window.app.$on('logged-in', () => {
         ga4.login()
     })
