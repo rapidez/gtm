@@ -1,6 +1,12 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/gtm/compare/3.2.1...3.2.1)
+[Unreleased changes](https://github.com/rapidez/gtm/compare/4.0.0...4.0.0)
+## [4.0.0](https://github.com/rapidez/gtm/releases/tag/4.0.0) - 2025-06-05
+
+### Added
+
+- Rapidez v4 support (a1aaf4f)
+
 ## [3.2.1](https://github.com/rapidez/gtm/releases/tag/3.2.1) - 2025-06-03
 
 ### Fixed
