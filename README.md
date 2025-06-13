@@ -1,6 +1,6 @@
 # Rapidez GTM
 
-This Rapidez package provides 2 views with the GTM scripts, listens to events emitted by the Rapidez Core and adds ecommerce data to the datalayer. Currently for [Universal Analytics Enhanced Ecommerce](https://developers.google.com/analytics/devguides/collection/ua/gtm/enhanced-ecommerce) but you can use this with Analytics 4 by using a [GTM Template](https://github.com/gtm-templates-knowit-experience/ga-eec-to-ga4-ecom-converter).
+This Rapidez package provides 2 views with the GTM scripts, listens to events emitted by the Rapidez Core and adds ecommerce data to the datalayer.
 
 ## Installation
 
