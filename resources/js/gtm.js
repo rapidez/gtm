@@ -1,9 +1,11 @@
 import * as ga4 from './datalayer/ga4.js';
+import { on } from 'Vendor/rapidez/core/resources/js/polyfills/emit.js';
 
 window.removeTrailingZeros = (price) =>  parseFloat(parseFloat(price).toString());
 
 function getUserId() {
-    let gaCookie = window.app.$cookies.get('_ga')
+    // Prefer Vue 3 globalProperties cookies if available, fallback to legacy window.app.$cookies
+    let gaCookie = window.app?.config?.globalProperties?.$cookies?.get('_ga') || window.app?.$cookies?.get('_ga')
 
     if (!gaCookie) {
         return
@@ -25,7 +27,7 @@ function getSessionId() {
         return
     }
 
-    let gsCookie = window.app.$cookies.get('_ga_' + gaId.substring(2));
+    let gsCookie = window.app?.config?.globalProperties?.$cookies?.get('_ga_' + gaId.substring(2)) || window.app?.$cookies?.get('_ga_' + gaId.substring(2));
 
     if (!gsCookie) {
         return
@@ -77,36 +79,36 @@ document.addEventListener('vue:loaded', async () => {
         ga4.beginCheckout()
     }
 
-    window.app.$on('registered', () => {
+    on('registered', () => {
        ga4.register()
     });
     
-    window.app.$on('logged-in', () => {
+    on('logged-in', () => {
         ga4.login()
     })
 
-    window.app.$on('cart-add', (data) => {
+    on('cart-add', (data) => {
         ga4.addToCart(data)
     })
 
-    window.app.$on('cart-remove', (item) => {
+    on('cart-remove', (item) => {
         ga4.removeFromCart(item)
     })
 
-    window.app.$on('checkout-credentials-saved', () => {
+    on('checkout-credentials-saved', () => {
         ga4.addShippingInfo()
     })
 
-    window.app.$on('checkout-payment-saved', () => {
+    on('checkout-payment-saved', () => {
         ga4.addPaymentInfo()
     })
 
-    window.app.$on('checkout-success', (order) => {
+    on('checkout-success', (order) => {
         ga4.purchase(order)
     })
 
     if (window.config.gtm['elgentos-serverside']) {
-        window.app.$on('checkout-credentials-saved', (data) => {
+        on('rapidez:checkout-credentials-saved', (data) => {
             let gaUserId = getUserId();
             let gaSessionId = getSessionId();
 
