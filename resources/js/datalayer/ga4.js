@@ -1,3 +1,5 @@
+import { cart } from 'Vendor/rapidez/core/resources/js/stores/useCart.js'
+
 export const pageView = async (url) => {
     // https://developers.google.com/analytics/devguides/collection/ga4/views?client_type=gtm
     window.dataLayer.push({
@@ -138,7 +140,7 @@ export const removeFromCart = async (item) => {
 }
 
 export const viewCart = async () => {
-    if (!window.app.cart?.items) {
+    if (!cart.value?.items) {
         return
     }
     
@@ -148,8 +150,8 @@ export const viewCart = async () => {
         event: 'view_cart',
         ecommerce: {
             currency: window.config.currency,
-            value: removeTrailingZeros(window.app.cart?.prices?.grand_total?.value),
-            items: Object.values(window.app.cart.items).map(function (item) {
+            value: removeTrailingZeros(cart.value?.prices?.grand_total?.value),
+            items: Object.values(cart.value.items).map(function (item) {
                 return {
                     item_name: item?.product?.name,
                     item_id: item?.product?.sku,
@@ -162,7 +164,7 @@ export const viewCart = async () => {
 }
 
 export const beginCheckout = async (step) => {
-    if (!window.app.cart?.items) {
+    if (!cart.value?.items) {
         return
     }
     
@@ -172,8 +174,8 @@ export const beginCheckout = async (step) => {
         event: 'begin_checkout',
         ecommerce: {
             currency: window.config.currency,
-            value: removeTrailingZeros(window.app.cart?.prices?.grand_total?.value),
-            items: Object.values(window.app.cart.items).map(function (item) {
+            value: removeTrailingZeros(cart.value?.prices?.grand_total?.value),
+            items: Object.values(cart.value.items).map(function (item) {
                 return {
                     item_name: item?.product?.name,
                     item_id: item?.product?.sku,
@@ -192,9 +194,9 @@ export const addShippingInfo = async () => {
         event: 'add_shipping_info',
         ecommerce: {
             currency: window.config.currency,
-            value: removeTrailingZeros(window.app.cart?.prices?.grand_total?.value),
-            shipping_tier: window.app.cart?.shipping_addresses?.[0]?.selected_shipping_method?.method_code,
-            items: Object.values(window.app.cart.items).map(function (item) {
+            value: removeTrailingZeros(cart.value?.prices?.grand_total?.value),
+            shipping_tier: cart.value?.shipping_addresses?.[0]?.selected_shipping_method?.method_code,
+            items: Object.values(cart.value.items).map(function (item) {
                 return {
                     item_name: item?.product?.name,
                     item_id: item?.product?.sku,
@@ -213,9 +215,9 @@ export const addPaymentInfo = async () => {
         event: 'add_payment_info',
         ecommerce: {
             currency: window.config.currency,
-            value: removeTrailingZeros(window.app.cart?.prices?.grand_total?.value),
-            payment_type: window.app.cart?.selected_payment_method?.code,
-            items: Object.values(window.app.cart.items).map(function (item) {
+            value: removeTrailingZeros(cart.value?.prices?.grand_total?.value),
+            payment_type: cart.value?.selected_payment_method?.code,
+            items: Object.values(cart.value.items).map(function (item) {
                 return {
                     item_name: item?.product?.name,
                     item_id: item?.product?.sku,
