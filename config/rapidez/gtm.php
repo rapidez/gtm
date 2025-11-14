@@ -24,5 +24,5 @@ return [
                 'googleads.g.doubleclick.net',
             ]
         ),
-    ]
+    ],
 ];
