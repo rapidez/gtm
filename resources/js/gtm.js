@@ -108,7 +108,7 @@ document.addEventListener('vue:loaded', async () => {
     })
 
     if (window.config.gtm['elgentos-serverside']) {
-        on('rapidez:checkout-credentials-saved', (data) => {
+        on('checkout-credentials-saved', (data) => {
             let gaUserId = getUserId();
             let gaSessionId = getSessionId();
 
