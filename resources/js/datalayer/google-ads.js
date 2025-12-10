@@ -2,16 +2,18 @@ import { cart } from 'Vendor/rapidez/core/resources/js/stores/useCart.js'
 import { user } from 'Vendor/rapidez/core/resources/js/stores/useUser.js'
 
 export const setUserData = async (userData = {
-    email: user.value?.email || cart.value?.email || window.app.config.globalProperties.guestEmail,
-    phone_number: cart.value?.billing_address?.telephone?.replaceAll(/[^0-9\+]*/g, ''),
-    address: {
-        first_name: cart.value?.billing_address?.firstname,
-        last_name: cart.value?.billing_address?.lastname,
-        street: cart.value?.billing_address?.street?.join("\n"),
-        city: cart.value?.billing_address?.city,
-        postal_code: cart.value?.billing_address?.postcode,
-        country: cart.value?.billing_address?.country?.code,
+        email: user.value?.email || cart.value?.email || window.app.config.globalProperties.guestEmail,
+        phone_number: cart.value?.billing_address?.telephone?.replaceAll(/[^0-9\+]*/g, ''),
+        address: {
+            first_name: cart.value?.billing_address?.firstname,
+            last_name: cart.value?.billing_address?.lastname,
+            street: cart.value?.billing_address?.street?.join("\n"),
+            city: cart.value?.billing_address?.city,
+            postal_code: cart.value?.billing_address?.postcode,
+            country: cart.value?.billing_address?.country?.code,
+        }
     }
+) => {
     // https://support.google.com/google-ads/answer/13262500
 
     // If your site doesn't collect one of those fields, remove the field entirely rather than leaving it blank
