@@ -1,6 +1,12 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/gtm/compare/4.0.0...4.0.0)
+[Unreleased changes](https://github.com/rapidez/gtm/compare/5.0.0...5.0.0)
+## [5.0.0](https://github.com/rapidez/gtm/releases/tag/5.0.0) - 2025-12-10
+
+### Added
+- Rapidez V5 Support(#39)
+
+
 ## [4.0.0](https://github.com/rapidez/gtm/releases/tag/4.0.0) - 2025-06-05
 
 ### Added
