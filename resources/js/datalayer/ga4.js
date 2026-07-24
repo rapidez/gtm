@@ -186,6 +186,10 @@ export const beginCheckout = async (step) => {
 }
 
 export const addShippingInfo = async () => {
+    if (!window.app.cart?.items) {
+        return
+    }
+
     // https://developers.google.com/analytics/devguides/collection/ga4/reference/events?client_type=gtm#add_shipping_info
     dataLayer.push({ ecommerce: null })
     dataLayer.push({
@@ -207,6 +211,10 @@ export const addShippingInfo = async () => {
 }
 
 export const addPaymentInfo = async () => {
+    if (!window.app.cart?.items) {
+        return
+    }
+
     // https://developers.google.com/analytics/devguides/collection/ga4/reference/events?client_type=gtm#add_payment_info
     dataLayer.push({ ecommerce: null })
     dataLayer.push({
@@ -228,6 +236,10 @@ export const addPaymentInfo = async () => {
 }
 
 export const purchase = async (order) => {
+    if (!order?.items) {
+        return
+    }
+
     // https://developers.google.com/analytics/devguides/collection/ga4/reference/events?client_type=gtm#purchase
     dataLayer.push({ ecommerce: null })
     dataLayer.push({
