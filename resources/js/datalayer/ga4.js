@@ -238,7 +238,7 @@ export const addPaymentInfo = async () => {
 }
 
 export const purchase = async (order) => {
-    if (!order?.number) {
+    if (!order?.items) {
         return
     }
     
