@@ -1,6 +1,13 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/gtm/compare/4.0.0...4.0.0)
+[Unreleased changes](https://github.com/rapidez/gtm/compare/4.0.1...4.0.1)
+## [4.0.1](https://github.com/rapidez/gtm/releases/tag/4.0.1) - 2026-07-28
+
+### Fixed
+
+- Code style fix (#38)
+- Check for existing items (#42)
+
 ## [4.0.0](https://github.com/rapidez/gtm/releases/tag/4.0.0) - 2025-06-05
 
 ### Added
