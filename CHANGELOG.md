@@ -1,6 +1,12 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/gtm/compare/5.0.0...5.0.0)
+[Unreleased changes](https://github.com/rapidez/gtm/compare/5.0.1...5.0.1)
+## [5.0.1](https://github.com/rapidez/gtm/releases/tag/5.0.1) - 2026-07-28
+
+### Fixed
+
+- Check for existing items (#41)
+
 ## [5.0.0](https://github.com/rapidez/gtm/releases/tag/5.0.0) - 2025-12-10
 
 ### Added
