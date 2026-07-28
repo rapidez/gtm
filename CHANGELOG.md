@@ -1,6 +1,6 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/gtm/compare/2.2.0...2.2.0)
+[Unreleased changes](https://github.com/rapidez/gtm/compare/...2.3.0)
 ## [2.2.0](https://github.com/rapidez/gtm/releases/tag/2.2.0) - 2025-05-27
 
 ### Changed
