@@ -19,7 +19,7 @@ export const productView = async () => {
             value: removeTrailingZeros(window.config.product.price),
             items: [
                 // See the GTMServiceProvider for the values
-                Object.fromEntries(Object.entries(config.gtm.productpage).map(([key, value]) => [key, eval(value)]))
+                Object.fromEntries(Object.entries(config.gtm.productpage).map(([key, value]) => [key, (0, eval)(value)]))
             ]
         }
     })
