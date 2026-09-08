@@ -1,6 +1,12 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/gtm/compare/5.0.1...5.0.1)
+[Unreleased changes](https://github.com/rapidez/gtm/compare/5.0.2...5.0.2)
+## [5.0.2](https://github.com/rapidez/gtm/releases/tag/5.0.2) - 2026-09-08
+
+### Fixed
+
+- Avoid direct eval (#43)
+
 ## [5.0.1](https://github.com/rapidez/gtm/releases/tag/5.0.1) - 2026-07-28
 
 ### Fixed
