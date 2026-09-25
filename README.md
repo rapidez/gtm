@@ -56,6 +56,10 @@ v-item-list="{
 
 You can also track it only on intersection by adding the `.intersection` modifier. This defaults to 50% intersection, but can be overridden: `v-item-list.intersection="{ intersection: 80, ... }"`
 
+## Custom options
+
+Chosen custom options (for example accessories or services) are added as separate items to the cart, checkout and purchase events, with the `item_option` and `item_parent_sku` of the product they belong to. The price of the product item excludes these options, so the total stays the same. The option SKUs and prices are taken from the product options in the cart fragment of Rapidez Core; options that can't be matched, like text fields, are not added.
+
 ## Enhanced Conversions
 
 To track [Enhanced Conversions](https://support.google.com/google-ads/answer/13262500), we supply a seperate file you can run when you have captured the relevant user info you want to push.
