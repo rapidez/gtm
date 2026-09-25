@@ -1,6 +1,12 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/gtm/compare/5.0.2...5.0.2)
+[Unreleased changes](https://github.com/rapidez/gtm/compare/5.1.0...5.1.0)
+## [5.1.0](https://github.com/rapidez/gtm/releases/tag/5.1.0) - 2026-09-25
+
+### Added
+
+- Add chosen custom options as separate items to the GA4 events (#44)
+
 ## [5.0.2](https://github.com/rapidez/gtm/releases/tag/5.0.2) - 2026-09-08
 
 ### Fixed
